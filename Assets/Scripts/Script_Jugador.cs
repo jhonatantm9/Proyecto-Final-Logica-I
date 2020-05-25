@@ -44,9 +44,10 @@ public class Script_Jugador : MonoBehaviour
         //Condicional para cuando el jugador toque la meta
         else if (collision.tag == "Meta")
         {
-            Debug.Log("Ganaste");
+            //Compara el nivel actual con el mayor nivel completado, para cuando el jugador elija un nivel anterior
             if (numero_escena > nivel_completado)
             {
+                //Cambia el atributo de NivelCompletado con la escena que acaba de completar
                 PlayerPrefs.SetInt("NivelCompletado", numero_escena);
             }
             //Se invoca el método que muestra el menú de niveles luego de un segundo
@@ -96,6 +97,7 @@ public class Script_Jugador : MonoBehaviour
         }
     }
 
+    //Carga la escena con el menú de niveles
     public void CargarMenu()
     {
         SceneManager.LoadScene(1);
