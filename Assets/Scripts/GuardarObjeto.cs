@@ -16,11 +16,11 @@ public class GuardarObjeto : MonoBehaviour
             Destroy(gameObject);
             return;
         }*/
-        if (escenaActual != SceneManager.GetActiveScene().buildIndex)
+        /*if (escenaActual != SceneManager.GetActiveScene().buildIndex)
         {
             Destroy(gameObject);
             return;
-        }
+        }*/
         if (instancia == null)
         {
             instancia = this;
@@ -29,10 +29,10 @@ public class GuardarObjeto : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(SceneManager.GetActiveScene().buildIndex != 0)
-        {
+        /*if(SceneManager.GetActiveScene().buildIndex != 0)
+        {*/
             DontDestroyOnLoad(gameObject);
-        }
+        
         
     }
 }

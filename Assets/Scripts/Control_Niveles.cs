@@ -119,6 +119,6 @@ public class Control_Niveles : MonoBehaviour
 		nivel8.interactable = false;
 		nivel9.interactable = false;
 		nivel10.interactable = false;
-		PlayerPrefs.DeleteAll();
+		PlayerPrefs.SetInt("NivelCompletado", 1);
 	}
 }

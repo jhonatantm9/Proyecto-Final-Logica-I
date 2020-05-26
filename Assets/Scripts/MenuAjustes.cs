@@ -1,40 +1,23 @@
-﻿using UnityEngine.UI;
+﻿
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MenuAjustes : MonoBehaviour
 {
-    public GameObject menu_ajustes;
-    public GameObject menu_pausa;
+   
     public static bool ajustes_activos = false;
+    public AudioMixer mezclador; //Objeto a través del que está la salida de sonido
 
-    public void mostrarAjustes()
+    private void Awake()
     {
-        ajustes_activos = true;
-        menu_ajustes.SetActive(true);
+        //Se ajusta el volumen al iniciar un nivel
+        mezclador.SetFloat("Volumen", PlayerPrefs.GetFloat("VolumenActual"));
     }
-
-    public void ocultarAjustes()
+    
+    //Este método ajusta el volumen del mezclador y añade el valor al playerPrefs para usarlo en otras escenas
+    public void cambiarVolumen(float volumen)
     {
-        ajustes_activos = false;
-        menu_ajustes.SetActive(false);
-    }
-
-    public void mostrarMenuPausa()
-    {
-        menu_pausa.SetActive(true);
-    }
-
-    public void ocultarMenuPausa()
-    {
-        menu_pausa.SetActive(false);
-    }
-
-    public void cambiarMenu()
-    {
-        if (menu_pausa.activeSelf && !menu_ajustes.activeSelf)
-        {
-            menu_ajustes.SetActive(false);
-            menu_pausa.SetActive(true);
-        }
+        mezclador.SetFloat("Volumen", volumen);
+        PlayerPrefs.SetFloat("VolumenActual", volumen);
     }
 }
