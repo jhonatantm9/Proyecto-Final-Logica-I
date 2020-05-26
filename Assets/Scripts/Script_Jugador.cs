@@ -17,6 +17,7 @@ public class Script_Jugador : MonoBehaviour
     public bool cero_clicks = true;
     public int numero_escena;
     public int nivel_completado;
+    public bool meta_alcanzada;
 
     private void Start()
     {
@@ -25,38 +26,45 @@ public class Script_Jugador : MonoBehaviour
                               //juego (excepto gravedad)
         rb.gravityScale = 0;//se pone la gravedad en 0 para que no caiga al inicio del nivel
 
+        //Se establece el nivel como no terminado
+        meta_alcanzada = false;
+
         //se asigna a una variable el número de la escena
         numero_escena = SceneManager.GetActiveScene().buildIndex;
         //se asigna el número del nivel completado, con referencia a las opciones guardadas
-        nivel_completado = PlayerPrefs.GetInt("NivelCompletado");
+        nivel_completado = PlayerPrefs.GetInt("NivelCompletado")-1;
+
     }
 
     //Metodo que actuará cada que haya una colisión
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    //Condicional que indica si al haber contacto con el objeto de intercambio de color, asigne un color aleatorio
-        if(collision.tag == "intercambio")
+        //condicional para cuando el jugador termine el nivel, y no se resetee en caso de chocar con un obstáculo
+        if (!meta_alcanzada)
         {
-            asignarColor();
-            Destroy(collision.gameObject);
-            return;
-        }
-        //Condicional para cuando el jugador toque la meta
-        else if (collision.tag == "Meta")
-        {
-            //Compara el nivel actual con el mayor nivel completado, para cuando el jugador elija un nivel anterior
-            if (numero_escena > nivel_completado)
+            //Condicional que indica si al haber contacto con el objeto de intercambio de color, asigne un color aleatorio
+            if (collision.tag == "intercambio")
             {
-                //Cambia el atributo de NivelCompletado con la escena que acaba de completar
-                PlayerPrefs.SetInt("NivelCompletado", numero_escena);
+                asignarColor();
+                Destroy(collision.gameObject);
+                return;
             }
-            //Se invoca el método que muestra el menú de niveles luego de un segundo
-            Invoke ("CargarMenu", 0.4f);
-        }
-        //Condicional diseñado para cuando el jugador toque un obstáculo con color diferente al suyo
-        else if (collision.tag != color_actual)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //Condicional para cuando el jugador toque la meta
+            else if (collision.tag == "Meta")
+            {
+                meta_alcanzada = true;
+                if (numero_escena > nivel_completado)
+                {
+                    PlayerPrefs.SetInt("NivelCompletado", numero_escena);
+                }
+                //Se invoca el método que muestra el menú de niveles luego de un segundo
+                Invoke("CargarMenu", 1f);
+            }
+            //Condicional diseñado para cuando el jugador toque un obstáculo con color diferente al suyo
+            else if (collision.tag != color_actual)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
         
     }
@@ -97,7 +105,6 @@ public class Script_Jugador : MonoBehaviour
         }
     }
 
-    //Carga la escena con el menú de niveles
     public void CargarMenu()
     {
         SceneManager.LoadScene(1);
@@ -106,7 +113,7 @@ public class Script_Jugador : MonoBehaviour
     void Update()
     {
         //Condicional que hará que cada que se termine el click dado por el usuario se le aplique una fuerza al objeto para que salte
-        if (Input.GetButtonDown("Jump")|| Input.GetMouseButtonDown(0))
+        if ((Input.GetButtonDown("Jump")|| Input.GetMouseButtonDown(0)) && MenuPausa.juego_pausado==false)
         {
             //al hacer el rimer click o apretar espacio por primera vez, se eliminan las características isKinetic y gravedad=0
             //para permitir el movimiento normal del jugador en el juego, además se quita el poder entrar a este condicional
