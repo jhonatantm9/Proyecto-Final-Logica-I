@@ -158,7 +158,6 @@ GameObject:
   - component: {fileID: 6652691405756470968}
   - component: {fileID: 6652691405756470969}
   - component: {fileID: 9203589641515506445}
-  - component: {fileID: 6815299673083348407}
   m_Layer: 5
   m_Name: MenuAjustes
   m_TagString: Untagged
@@ -244,19 +243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
---- !u!114 &6815299673083348407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6652691405756470972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4322cfca312a9934c8f2fbadeb0c08ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mezclador: {fileID: 24100000, guid: 46c246bd2d4dc2141a7746e029d1fe70, type: 2}
 --- !u!1 &6652691405919586025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1001,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6815299673083348407}
+      - m_Target: {fileID: 0}
         m_MethodName: cambiarVolumen
         m_Mode: 0
         m_Arguments:

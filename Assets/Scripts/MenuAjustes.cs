@@ -10,10 +10,19 @@ public class MenuAjustes : MonoBehaviour
 
     private void Awake()
     {
+        //Se agrega la preferencia de Volumen actual si esta no estaba
+        if (!PlayerPrefs.HasKey("VolumenActual"))
+        {
+            PlayerPrefs.SetFloat("VolumenActual", -5f);
+        }
+    }
+
+    private void Start()
+    {
         //Se ajusta el volumen al iniciar un nivel
         mezclador.SetFloat("Volumen", PlayerPrefs.GetFloat("VolumenActual"));
     }
-    
+
     //Este método ajusta el volumen del mezclador y añade el valor al playerPrefs para usarlo en otras escenas
     public void cambiarVolumen(float volumen)
     {

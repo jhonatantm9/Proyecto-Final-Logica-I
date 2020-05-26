@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8720856185773767948}
   - component: {fileID: 8720856185773767951}
   - component: {fileID: 8720856185773767950}
+  - component: {fileID: 3742682732926286538}
   m_Layer: 5
   m_Name: Canvas Menus
   m_TagString: Untagged
@@ -114,6 +115,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu_pausa_UI: {fileID: 5181478094327385637}
+--- !u!114 &3742682732926286538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720856185773767985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4322cfca312a9934c8f2fbadeb0c08ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mezclador: {fileID: 24100000, guid: 46c246bd2d4dc2141a7746e029d1fe70, type: 2}
 --- !u!1001 &5237816457399057833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,6 +244,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuAjustes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652691407577229560, guid: 2a6e8900a5637154ab07dc09560767a5,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3742682732926286538}
+    - target: {fileID: 6652691407577229560, guid: 2a6e8900a5637154ab07dc09560767a5,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: cambiarVolumen
       objectReference: {fileID: 0}
     - target: {fileID: 6652691407627161173, guid: 2a6e8900a5637154ab07dc09560767a5,
         type: 3}

@@ -145,18 +145,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6652691405636731255}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &153950161 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6815299673083348407, guid: 2a6e8900a5637154ab07dc09560767a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 6652691405636731255}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153950155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4322cfca312a9934c8f2fbadeb0c08ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &395609548
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +158,7 @@ GameObject:
   - component: {fileID: 395609553}
   - component: {fileID: 395609552}
   - component: {fileID: 395609549}
+  - component: {fileID: 395609550}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -190,6 +179,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barra_desplazamiento: {fileID: 123408701}
+--- !u!114 &395609550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395609548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4322cfca312a9934c8f2fbadeb0c08ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mezclador: {fileID: 24100000, guid: 46c246bd2d4dc2141a7746e029d1fe70, type: 2}
 --- !u!114 &395609552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2800,7 +2802,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 153950161}
+      objectReference: {fileID: 395609550}
     - target: {fileID: 6652691407577229560, guid: 2a6e8900a5637154ab07dc09560767a5,
         type: 3}
       propertyPath: m_MinValue
@@ -2809,7 +2811,12 @@ PrefabInstance:
     - target: {fileID: 6652691407577229560, guid: 2a6e8900a5637154ab07dc09560767a5,
         type: 3}
       propertyPath: m_MaxValue
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652691407577229560, guid: 2a6e8900a5637154ab07dc09560767a5,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: cambiarVolumen
       objectReference: {fileID: 0}
     - target: {fileID: 6652691407577229561, guid: 2a6e8900a5637154ab07dc09560767a5,
         type: 3}
@@ -3041,7 +3048,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2a6e8900a5637154ab07dc09560767a5, type: 3}
 --- !u!1001 &6994309889952747188
 PrefabInstance:
