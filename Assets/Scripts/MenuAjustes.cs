@@ -29,4 +29,6 @@ public class MenuAjustes : MonoBehaviour
         mezclador.SetFloat("Volumen", volumen);
         PlayerPrefs.SetFloat("VolumenActual", volumen);
     }
+
+    
 }

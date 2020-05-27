@@ -11,12 +11,14 @@ public class CambiarVolumen : MonoBehaviour
         audio_manager.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("VolumenActual");
     }
 
-    //Método que modifica el bolumen del objeto. Está ligado al slider, para que el valor que tenga este, sea
+    //Método que modifica el volumen del objeto. Está ligado al slider, para que el valor que tenga este, sea
     //el valor del volumen. Además, el número se coloca en la preferencia para poder utilizarse más adelante
     public void cambiarVolumen(float volumen)
     {
         audio_manager.GetComponent<AudioSource>().volume = volumen;
         PlayerPrefs.SetFloat("VolumenActual", volumen);
     }
+
+
 
 }

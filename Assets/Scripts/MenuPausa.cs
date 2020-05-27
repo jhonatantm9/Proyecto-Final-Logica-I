@@ -38,6 +38,9 @@ public class MenuPausa : MonoBehaviour
 
     public void cargaMenu()
     {
+        juego_pausado = false;
+        menu_pausa_UI.SetActive(false);//Esto se agrega, para evitar que al iniciar un nivel de nuevo, aparezca el menú
+                                        //de pausa
         Time.timeScale = 1f;//provoca que la aplicación no se quede pausada después de cargar la escena del menú
         SceneManager.LoadScene("Inicio Juego");
     }
