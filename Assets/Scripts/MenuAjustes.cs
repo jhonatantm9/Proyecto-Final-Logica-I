@@ -5,8 +5,9 @@ using UnityEngine.Audio;
 public class MenuAjustes : MonoBehaviour
 {
    
-    public static bool ajustes_activos = false;
+    //public static bool ajustes_activos = false;
     public AudioMixer mezclador; //Objeto a través del que está la salida de sonido
+    
 
     private void Awake()
     {
@@ -30,5 +31,4 @@ public class MenuAjustes : MonoBehaviour
         PlayerPrefs.SetFloat("VolumenActual", volumen);
     }
 
-    
 }

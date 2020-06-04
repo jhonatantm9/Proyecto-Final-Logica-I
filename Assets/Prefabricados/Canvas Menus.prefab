@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu_pausa_UI: {fileID: 5181478094327385637}
+  menu_ajustes_UI: {fileID: 1505167402300582677}
 --- !u!114 &3742682732926286538
 MonoBehaviour:
   m_ObjectHideFlags: 0
